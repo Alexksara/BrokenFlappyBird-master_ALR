@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 749682264}
   - component: {fileID: 749682267}
   m_Layer: 0
-  m_Name: g
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1222,7 +1222,7 @@ GameObject:
   - component: {fileID: 1126978222}
   - component: {fileID: 1126978223}
   m_Layer: 0
-  m_Name: p
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1758,12 +1758,12 @@ GameObject:
   - component: {fileID: 1316777441}
   - component: {fileID: 1316777440}
   m_Layer: 5
-  m_Name: Screen3
+  m_Name: GameOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1316777440
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1954,12 +1954,12 @@ GameObject:
   - component: {fileID: 1630145167}
   - component: {fileID: 1630145168}
   m_Layer: 5
-  m_Name: Screen1
+  m_Name: TitleScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1630145167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2000,12 +2000,12 @@ GameObject:
   - component: {fileID: 1661459961}
   - component: {fileID: 1661459962}
   m_Layer: 5
-  m_Name: Screen2
+  m_Name: ReadySreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1661459961
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2045,7 +2045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1689678197}
   m_Layer: 0
-  m_Name: PipeSpawn
+  m_Name: PipeSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
