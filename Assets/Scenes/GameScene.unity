@@ -2247,9 +2247,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 8895835194987703811, guid: 1ba1edbadf2e9b445a570241889d50da, type: 3}
-  spawnRate: 0.2
-  randomVariable: 1
-  wherewewanttheprefabtostart: {fileID: 1689678197}
+  spawnRate: 1
+  randomRange: 1
+  startSpawn: {fileID: 1689678197}
+  pipes: []
 --- !u!1 &2110664486
 GameObject:
   m_ObjectHideFlags: 0
