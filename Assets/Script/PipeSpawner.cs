@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PipeSpawner : MonoBehaviour
 {
@@ -6,6 +8,7 @@ public class PipeSpawner : MonoBehaviour
     public float spawnRate = .1f;
     public float randomVariable = 1f;
     public Transform wherewewanttheprefabtostart;
+    public List<GameObject> pipes;
     
     private float timer = float.MaxValue;
 
@@ -14,7 +17,7 @@ public class PipeSpawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= spawnRate)
         {
-            DoStuff();
+            SpawnPipes();
             timer = 0f;
         }
     }
@@ -24,10 +27,10 @@ public class PipeSpawner : MonoBehaviour
         enabled = true;
     }
 
-    void DoStuff()
+    void SpawnPipes()
     {
         float yOffset = Random.Range(-randomVariable, randomVariable);
         Vector3 spawnPosition = wherewewanttheprefabtostart.position + Vector3.up * yOffset;
-        Instantiate(prefab, spawnPosition, Quaternion.identity);
+        pipes.Add(Instantiate(prefab, spawnPosition, Quaternion.identity));
     }
 }

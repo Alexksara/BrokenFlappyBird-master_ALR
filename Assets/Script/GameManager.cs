@@ -23,8 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        Pipe[] pipes = FindObjectsByType<Pipe>(FindObjectsSortMode.None);
-        foreach(Pipe pipe in pipes)
+        foreach(GameObject pipe in pipeSpawner.pipes)
         {
             Destroy(pipe.gameObject);
         }
