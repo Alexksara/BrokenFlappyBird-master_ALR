@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class Bird : MonoBehaviour
 {
-    private Rigidbody2D birdRB;
-    private Animator birdAnimator;
+    private Rigidbody2D M_birdRB;
+    private Animator M_birdAnimator;
 
-    private bool isAlive = false;
-    private Vector3 initialBirdPosition;
-    private Quaternion initialBirdRotation;
+    private bool M_isAlive = false;
+    private Vector3 M_initialBirdPosition;
+    private Quaternion M_initialBirdRotation;
 
     public float maxJumpVelocity = 5f;
     public float maxUpwardAngle = 45f;     
@@ -22,16 +22,16 @@ public class Bird : MonoBehaviour
 
     void Start()
     {
-        initialBirdPosition = transform.position;
-        initialBirdRotation = transform.rotation;
-        birdAnimator = GetComponent<Animator>();
-        birdRB = GetComponent<Rigidbody2D>();
-        birdRB.gravityScale = 0f; 
+        M_initialBirdPosition = transform.position;
+        M_initialBirdRotation = transform.rotation;
+        M_birdAnimator = GetComponent<Animator>();
+        M_birdRB = GetComponent<Rigidbody2D>();
+        M_birdRB.gravityScale = 0f; 
     }
 
     void Update()
     {
-        if (isAlive)
+        if (M_isAlive)
         {
             if (Input.GetButton("Jump") || Input.GetButton("Fire1"))
             {
@@ -43,18 +43,18 @@ public class Bird : MonoBehaviour
 
     private void ResetJumpTrigger()
     {
-        birdAnimator.ResetTrigger("Jump");
+        M_birdAnimator.ResetTrigger("Jump");
     }
 
     private void Jump()
     {
-        birdRB.linearVelocity = Vector2.up * maxJumpVelocity;
-        birdAnimator.SetTrigger("Jump");
+        M_birdRB.linearVelocity = Vector2.up * maxJumpVelocity;
+        M_birdAnimator.SetTrigger("Jump");
     }
 
     void RotateBasedOnVelocity()
     {
-        float verticalVelocity = birdRB.linearVelocity.y;
+        float verticalVelocity = M_birdRB.linearVelocity.y;
 
         float t = 0f;
         if (verticalVelocity > 0)
@@ -92,24 +92,24 @@ public class Bird : MonoBehaviour
 
     public void StartGame()
     {
-        isAlive = true;
-        birdRB.gravityScale = gravityScale;
-        birdRB.linearVelocity = Vector2.zero;
+        M_isAlive = true;
+        M_birdRB.gravityScale = gravityScale;
+        M_birdRB.linearVelocity = Vector2.zero;
     }
 
     public void ResetBird()
     {
-        isAlive = false;
-        birdRB.gravityScale = 0f;
-        transform.position = initialBirdPosition;
-        transform.rotation = initialBirdRotation;
+        M_isAlive = false;
+        M_birdRB.gravityScale = 0f;
+        transform.position = M_initialBirdPosition;
+        transform.rotation = M_initialBirdRotation;
     }
 
     public void Die()
     {
-        isAlive = false;
-        birdRB.linearVelocity = Vector2.zero;
-        GameManager.Instance.GameOver();
+        M_isAlive = false;
+        M_birdRB.linearVelocity = Vector2.zero;
+        GameManager.S_Instance.GameOver();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

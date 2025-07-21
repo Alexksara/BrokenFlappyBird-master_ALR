@@ -10,15 +10,15 @@ public class PipeSpawner : MonoBehaviour
     public Transform startSpawn;
     public List<GameObject> pipes;
     
-    private float timer = float.MaxValue;
+    private float M_timer = float.MaxValue;
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= spawnRate)
+        M_timer += Time.deltaTime;
+        if (M_timer >= spawnRate)
         {
             SpawnPipes();
-            timer = 0f;
+            M_timer = 0f;
         }
     }
 

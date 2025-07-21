@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager S_Instance;
 
     public Bird bird;
     public PipeSpawner pipeSpawner;
     public UIManager uiManager;
-    private int score = 0;
+
+    private int M_score = 0;
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (S_Instance != null && S_Instance != this)
         {
             Destroy(this);
         }
         else
         {
-            Instance = this;
+            S_Instance = this;
         }
         pipeSpawner.enabled = false;
     }
@@ -34,8 +35,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(pipe.gameObject);
         }
-        score = 0;
-        uiManager.UpdateScore(score);
+        M_score = 0;
+        uiManager.UpdateScore(M_score);
 
         uiManager.ShowStart();
         pipeSpawner.enabled = false;
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        score = 0;
+        M_score = 0;
         uiManager.HideReady();
         pipeSpawner.enabled = true;
         bird.StartGame();
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        score++;
-        uiManager.UpdateScore(score);
+        M_score++;
+        uiManager.UpdateScore(M_score);
     }
 }
