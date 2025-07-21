@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 2
-  resetPositionX: -6.13
+  resetPositionX: -4
   startPositionX: 0
 --- !u!1 &807683797
 GameObject:
@@ -1561,9 +1561,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2077817618}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ResetGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2230,10 +2230,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sText: {fileID: 1303700497}
-  screen1: {fileID: 1630145166}
-  screen2: {fileID: 1661459960}
-  screen3: {fileID: 1316777439}
-  sUI: {fileID: 1303700495}
+  titleScreen: {fileID: 1630145166}
+  readyScreen: {fileID: 1661459960}
+  gameOverScreen: {fileID: 1316777439}
+  scoreUI: {fileID: 1303700495}
 --- !u!114 &2077817621
 MonoBehaviour:
   m_ObjectHideFlags: 0
