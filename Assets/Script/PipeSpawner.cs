@@ -23,11 +23,8 @@ public class PipeSpawner : MonoBehaviour
         }
     }
 
-    public void StartSpawning()
-    {
-        enabled = true;
-    }
-
+    //Summary
+    // spawns pipes between a random range and adds them to a list of pipes
     void SpawnPipes()
     {
         float yOffset = Random.Range(-M_randomRange, M_randomRange);

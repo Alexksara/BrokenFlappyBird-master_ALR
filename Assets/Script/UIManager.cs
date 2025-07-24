@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
         sText.text = score.ToString();
     }
 
+    //Summary
+    //enables ttitle screen and disables all others
     public void ShowStart()
     {
         titleScreen.SetActive(true);
@@ -23,11 +25,15 @@ public class UIManager : MonoBehaviour
         scoreUI.SetActive(false);
     }
 
+    //Summary
+    // hides start screen
     public void HideStart()
     {
         titleScreen.SetActive(false);
     }
 
+    //Summary
+    // shows ready screen and disables other screens
     public void ShowReady()
     {
         titleScreen.SetActive(false);
@@ -35,12 +41,15 @@ public class UIManager : MonoBehaviour
         gameOverScreen.SetActive(false);
     }
 
+    //Summary
+    //hides ready screen
     public void HideReady()
     {
         readyScreen.SetActive(false);
         scoreUI.SetActive(true);
     }
-
+    //Summary
+    // shows game over screen
     public void ShowGameOver()
     {
         gameOverScreen.SetActive(true);

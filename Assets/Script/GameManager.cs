@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
         bird.gameObject.SetActive(false);
     }
 
+    //Summary
+    //resets the scene
+
     public void ResetGame()
     {
         foreach(GameObject pipe in pipeSpawner.pipes)
@@ -45,6 +48,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    //Summary
+    // prepares the ready screen telling the player how to paly
     public void ReadyGame()
     {
         uiManager.HideStart();
@@ -53,6 +58,8 @@ public class GameManager : MonoBehaviour
         bird.gameObject.SetActive(true);
     }
 
+    //Summary
+    //begins the game
     public void StartGame()
     {
         M_score = 0;
@@ -61,12 +68,15 @@ public class GameManager : MonoBehaviour
         bird.StartGame();
     }
 
+    //Summary
+    // ends game stopping time and calling game over
     public void GameOver()
     {
         Time.timeScale = 0f;
         uiManager.ShowGameOver();
     }
-
+    //Summary
+    //incriments score and updates UI
     public void IncreaseScore()
     {
         M_score++;

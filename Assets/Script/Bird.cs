@@ -38,43 +38,43 @@ public class Bird : MonoBehaviour
         }
     }
 
+    //Summary
+    //Resets jump trigger in animator
+
     private void ResetJumpTrigger()
     {
         M_birdAnimator.ResetTrigger("Jump");
     }
 
+    //Summary
+    // give the player upwards velocity, sets animation trigger to jump
     private void Jump()
     {
         M_birdRB.linearVelocity = Vector2.up * M_maxJumpVelocity;
         M_birdAnimator.SetTrigger("Jump");
     }
 
+    //Summary
+    // calculates and sets the birds rotation to desired angle based on current velocity
     void RotateBasedOnVelocity()
     {
         float verticalVelocity = M_birdRB.linearVelocity.y;
-
-        float t = 0f;
-        if (verticalVelocity > 0)
-        {
-            t = Mathf.InverseLerp(0, M_maxJumpVelocity, verticalVelocity);
-        }
-        else
-        {
-            t = Mathf.InverseLerp(0, -M_maxJumpVelocity, verticalVelocity);
-            if (t < 0)
-            {
-                t = 0;
-            }
-        }
+        float tempAngle = 0f;
         float targetAngle = 0f;
 
-        if(verticalVelocity > 0)
+        if (verticalVelocity > 0)
         {
-            targetAngle = Mathf.Lerp(0, M_maxUpwardAngle, t);
+            tempAngle = Mathf.InverseLerp(0, M_maxJumpVelocity, verticalVelocity);
+            targetAngle = Mathf.Lerp(0, M_maxUpwardAngle, tempAngle);
         }
         else
         {
-            targetAngle = Mathf.Lerp(0, M_maxDownwardAngle, t);
+            tempAngle = Mathf.InverseLerp(0, -M_maxJumpVelocity, verticalVelocity);
+            if (tempAngle < 0)
+            {
+                tempAngle = 0;
+            }
+            targetAngle = Mathf.Lerp(0, M_maxDownwardAngle, tempAngle);
         }
         
         float currentZ = transform.eulerAngles.z;
@@ -87,6 +87,8 @@ public class Bird : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, newZ);
     }
 
+    //Summary
+    // sets important game variables to be ready for gameplay
     public void StartGame()
     {
         M_isAlive = true;
@@ -94,14 +96,17 @@ public class Bird : MonoBehaviour
         M_birdRB.linearVelocity = Vector2.zero;
     }
 
+    //Summary
+    // returns the bird to its start conditions, ready for gameplay
     public void ResetBird()
     {
-        M_isAlive = false;
-        M_birdRB.gravityScale = 0f;
+        StartGame();
         transform.position = M_initialBirdPosition;
         transform.rotation = M_initialBirdRotation;
     }
 
+    //Summary
+    // disables inputs and makes sure player cannot interact, calls game over
     public void Die()
     {
         M_isAlive = false;
@@ -109,6 +114,8 @@ public class Bird : MonoBehaviour
         GameManager.S_Instance.GameOver();
     }
 
+    //Summary
+    //when colliding with any collider the player dies
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Die();
