@@ -5,17 +5,18 @@ using System.Collections.Generic;
 public class PipeSpawner : MonoBehaviour
 {
     public GameObject pipePrefab;
-    public float spawnRate = 1f;
-    public float randomRange = 1f;
     public Transform startSpawn;
     public List<GameObject> pipes;
-    
+
+    [SerializeField] private float M_spawnRate = 1f;
+    [SerializeField] private float M_randomRange = 1f;
+
     private float M_timer = float.MaxValue;
 
     void Update()
     {
         M_timer += Time.deltaTime;
-        if (M_timer >= spawnRate)
+        if (M_timer >= M_spawnRate)
         {
             SpawnPipes();
             M_timer = 0f;
@@ -29,7 +30,7 @@ public class PipeSpawner : MonoBehaviour
 
     void SpawnPipes()
     {
-        float yOffset = Random.Range(-randomRange, randomRange);
+        float yOffset = Random.Range(-M_randomRange, M_randomRange);
         Vector3 spawnPosition = startSpawn.position + Vector3.up * yOffset;
         pipes.Add(Instantiate(pipePrefab, spawnPosition, Quaternion.identity));
     }

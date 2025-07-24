@@ -897,9 +897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad160665ad30be468746c093f60ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2
-  resetPositionX: -6.24
-  startPositionX: 0
+  M_scrollSpeed: 2
+  M_resetPositionX: 0
+  M_startPositionX: 0
 --- !u!1 &807683797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,11 +1373,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeda3dc204fe65e4a8668410db7626da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpVelocity: 5
-  maxUpwardAngle: 45
-  maxDownwardAngle: -90
-  rotationLerpSpeed: 5
-  gravityScale: 3
+  M_maxJumpVelocity: 5
+  M_maxUpwardAngle: 45
+  M_maxDownwardAngle: -90
+  M_rotationLerpSpeed: 5
+  M_gravityScale: 3
 --- !u!95 &1126978223
 Animator:
   serializedVersion: 7
@@ -1510,9 +1510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad160665ad30be468746c093f60ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2
-  resetPositionX: 0
-  startPositionX: 6.33
+  M_scrollSpeed: 2
+  M_resetPositionX: 0
+  M_startPositionX: 0
 --- !u!212 &1187551274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2397,10 +2397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipePrefab: {fileID: 8895835194987703811, guid: 1ba1edbadf2e9b445a570241889d50da, type: 3}
-  spawnRate: 1
-  randomRange: 1
   startSpawn: {fileID: 1689678197}
   pipes: []
+  M_spawnRate: 1
+  M_randomRange: 1
 --- !u!1 &2110664486
 GameObject:
   m_ObjectHideFlags: 0

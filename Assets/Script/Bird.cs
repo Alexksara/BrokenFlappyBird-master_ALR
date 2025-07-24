@@ -10,15 +10,12 @@ public class Bird : MonoBehaviour
     private Vector3 M_initialBirdPosition;
     private Quaternion M_initialBirdRotation;
 
-    public float maxJumpVelocity = 5f;
-    public float maxUpwardAngle = 45f;     
-    public float maxDownwardAngle = -90f;  
-    public float rotationLerpSpeed = 5f;
-    public float gravityScale = 3f;
+    [SerializeField] private float M_maxJumpVelocity = 5f;
+    [SerializeField] private float M_maxUpwardAngle = 45f;     
+    [SerializeField] private float M_maxDownwardAngle = -90f;  
+    [SerializeField] private float M_rotationLerpSpeed = 5f;
+    [SerializeField] private float M_gravityScale = 3f;
     
-    private void Awake()
-    {
-    }
 
     void Start()
     {
@@ -48,7 +45,7 @@ public class Bird : MonoBehaviour
 
     private void Jump()
     {
-        M_birdRB.linearVelocity = Vector2.up * maxJumpVelocity;
+        M_birdRB.linearVelocity = Vector2.up * M_maxJumpVelocity;
         M_birdAnimator.SetTrigger("Jump");
     }
 
@@ -59,11 +56,11 @@ public class Bird : MonoBehaviour
         float t = 0f;
         if (verticalVelocity > 0)
         {
-            t = Mathf.InverseLerp(0, maxJumpVelocity, verticalVelocity);
+            t = Mathf.InverseLerp(0, M_maxJumpVelocity, verticalVelocity);
         }
         else
         {
-            t = Mathf.InverseLerp(0, -maxJumpVelocity, verticalVelocity);
+            t = Mathf.InverseLerp(0, -M_maxJumpVelocity, verticalVelocity);
             if (t < 0)
             {
                 t = 0;
@@ -73,11 +70,11 @@ public class Bird : MonoBehaviour
 
         if(verticalVelocity > 0)
         {
-            targetAngle = Mathf.Lerp(0, maxUpwardAngle, t);
+            targetAngle = Mathf.Lerp(0, M_maxUpwardAngle, t);
         }
         else
         {
-            targetAngle = Mathf.Lerp(0, maxDownwardAngle, t);
+            targetAngle = Mathf.Lerp(0, M_maxDownwardAngle, t);
         }
         
         float currentZ = transform.eulerAngles.z;
@@ -86,14 +83,14 @@ public class Bird : MonoBehaviour
             currentZ -= 360;
         }
 
-        float newZ = Mathf.Lerp(currentZ, targetAngle, Time.deltaTime * rotationLerpSpeed);
+        float newZ = Mathf.Lerp(currentZ, targetAngle, Time.deltaTime * M_rotationLerpSpeed);
         transform.rotation = Quaternion.Euler(0f, 0f, newZ);
     }
 
     public void StartGame()
     {
         M_isAlive = true;
-        M_birdRB.gravityScale = gravityScale;
+        M_birdRB.gravityScale = M_gravityScale;
         M_birdRB.linearVelocity = Vector2.zero;
     }
 
