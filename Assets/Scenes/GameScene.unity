@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   M_scrollSpeed: 2
-  M_resetPositionX: 0
+  M_resetPositionX: -6.33
   M_startPositionX: 0
 --- !u!1 &807683797
 GameObject:
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   M_scrollSpeed: 2
   M_resetPositionX: 0
-  M_startPositionX: 0
+  M_startPositionX: 6.33
 --- !u!212 &1187551274
 SpriteRenderer:
   m_ObjectHideFlags: 0
